@@ -1,0 +1,10 @@
+webhook_url = 'https://discord.com/api/webhooks/1316798925562450012/-a8zz1QLB6wdWLbOMu90ODHsT6lqGwvfB_ktWbfg5CqEn4WVpWbb3oNyMJMWczS8ZTIv'
+message_content = 'this is a webhook test'
+payload = {'content': message_content}
+
+for _ in range(20):
+    response = requests.post(webhook_url, json=payload)
+    if response.status_code == 204:
+        print('Message sent successfully.')
+    else:
+        print(f'attempt failed. Status code: {response.status_code}')
